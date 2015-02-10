@@ -81,19 +81,6 @@
                     </div>
                 </div>
                 <!--custom-->
-                <div class="row" ng-if="user.Groups[0].Name == 'Staff'">
-                    <div class="col-xs-12 col-md-6">
-                        <div ng-repeat="field in currentOrder.OrderFields | filter:{Name: 'Date needed by'}">
-                            <customtextfield customfield="field" ng-if="field.ControlType == 'Text'" ng-required="field.IsRequired" />
-                            <customselectionfield customfield="field" ng-if="field.ControlType == 'Selection'" ng-required="field.IsRequired" />
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-md-6">
-                        <div ng-repeat="field in currentOrder.OrderFields | filter:{Name: 'Code.org Cost Center'}">
-                            <customtextfield customfield="field" ng-if="field.ControlType == 'Text'" ng-required="field.IsRequired" />
-                            <customselectionfield customfield="field" ng-if="field.ControlType == 'Selection'" ng-required="field.IsRequired" />
-                        </div>
-                    </div>
                 </div>
                 <div class="row view-form-icon" ng-if="user.Permissions.contains('EditPOID')" ng-invalid>
                     <div class="col-xs-12 input-group">
@@ -107,15 +94,7 @@
                         <i class="fa">#</i>
                     </div>
                 </div>
-                <div class="row" ng-if="user.Groups[0].Name == 'Staff'">
-                    <div class="col-xs-12">
-                        <div ng-repeat="field in currentOrder.OrderFields | filter: { Name: 'Shopify Email'}">
-                            <customtextfield customfield="field" ng-if="field.ControlType == 'Text'" ng-required="field.IsRequired" />
-                            <customselectionfield customfield="field" ng-if="field.ControlType == 'Selection'" ng-required="field.IsRequired" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row" ng-if="user.Groups[0].Name == 'Staff'">
+                <div class="row">
                     <div class="view-form-icon" ng-if="user.Permissions.contains('Comments')">
                         <div>
                             <label ng-show="currentOrder.Comments">{{'Comments' | r | xlat}}:</label>

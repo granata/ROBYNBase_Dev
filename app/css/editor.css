@@ -104,7 +104,6 @@ h2 .jumbotron  {color: #333333;}
 .panel-product-list .well  {color: #333333;}
 .panel-product-list .well  {border-color: #F0F0F0;}
 
-/*new from store.code.org 12/5/14*/
 .panel-lineitem .col-sm-9 {border-left: none;}
 .panel-lineitem.ng-scope {border-top: none !important;border-bottom:1px solid #ddd !important;}
 .panel-lineitem a:hover {

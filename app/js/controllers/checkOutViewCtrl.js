@@ -13,17 +13,9 @@ function ($scope, $routeParams, $location, $filter, $rootScope, $451, Analytics,
         $location.path('catalog');
     }
 
-    /*custom order fields
-    $scope.currentOrder.DateNeeded = $filter('getfieldbyname')($scope.currentOrder.OrderFields, 'Date needed by');
-    $scope.currentOrder.GuestEmail = $filter('getfieldbyname')($scope.currentOrder.OrderFields, 'Code.org Guest Email');
-    $scope.currentOrder.ShopifyEmail = $filter('getfieldbyname')($scope.currentOrder.OrderFields, 'Shopify Email');
-    $scope.currentOrder.CustomCostCenter = $filter('getfieldbyname')($scope.currentOrder.OrderFields, 'Code.org Cost Center');
-    custom order fields*/
-
 	$scope.hasOrderConfig = OrderConfig.hasConfig($scope.currentOrder, $scope.user);
 	//$scope.checkOutSection = $scope.hasOrderConfig ? 'order' : 'shipping';
 
-    /*PW-13837 RP - Code.org - Make it so the billing section is disabled (can't open it) until... */
     $scope.checkOutSection = 'shipping';
     $scope.$watch('currentOrder.ShipAddressID', function() {
         if ($scope.currentOrder.ShipAddressID && $scope.currentOrder.ShipperID) {
@@ -40,7 +32,6 @@ function ($scope, $routeParams, $location, $filter, $rootScope, $451, Analytics,
             $scope.checkOutSection = 'approval';
         }
     });
-    /*PW-13837 RP - Code.org - Make it so the billing section is disabled (can't open it) until... */
 
     function submitOrder() {
 	    $scope.displayLoadingIndicator = true;
