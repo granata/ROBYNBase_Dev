@@ -400,7 +400,8 @@ li.cart a i.fa-shopping-cart {
 }
 
 .navbar {
-    min-height: 120px;
+    min-height: 80px;
+    border-bottom: 4px solid #6699CC;
 }
 
 .navbar .container .navbar-nav, .navbar .container-view .navbar-nav {
