@@ -139,7 +139,7 @@ html {
 }
 
 .panel-product-list ul li.inline .backorder span {
-    background-color:#7665a0;
+    background-color:#696969;
     color:white;
     font-style: italic;
     width:100%;
@@ -237,8 +237,8 @@ fieldset[disabled] .btn-warning.active {
 }
 
 .cart-buttons .btn-primary {
-    background-color: #7665a0;
-    border-color: #7665a0;
+    background-color: #6699CC;
+    border-color: #6699CC;
     color:white;
 }
 
@@ -538,7 +538,7 @@ ul.topNav {
 
 .main .dropdown-menu > li > a:hover {
     background-color:transparent;
-    color:#7665a0;
+    color:#696969;
 }
 
 .dropdown-mega {
@@ -603,7 +603,7 @@ ul.logoNav li img {
 }
 
 .app-loading-indicator-cell p {
-    background-color: #7665a0;
+    background-color: #696969;
     color: white;
 }
 
@@ -617,7 +617,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 h2 {
-    color: #7665a0;
+    color: #696969;
     font-size: 32px;
     font-weight: bold;
     line-height: 1.2em;
@@ -698,7 +698,7 @@ h4.text-primary span.subtotal {
 }
 
 .product-detail-default h3 {
-    color:#7665a0;
+    color:#696969;
 }
 
 .product-detail-default .btn-lg {
@@ -763,7 +763,7 @@ float:left;
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-    background-color: #7665a0 !important;
+    background-color: #696969 !important;
 }
 .pagination > .active > a,
 .pagination > .active > span,
@@ -771,8 +771,8 @@ float:left;
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-    background-color: #7665a0;
-    border-color: #7665a0;
+    background-color: #696969;
+    border-color: #696969;
 }
 
 
