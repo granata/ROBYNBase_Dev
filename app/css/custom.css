@@ -464,6 +464,10 @@ li.cart a i.fa-shopping-cart {
     color: #6699CC;
 }
 
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+	color: #6699CC;
+}
+
 .navbar .container .navbar-nav li.active .fa-caret-down, .navbar .container-view .navbar-nav li.active .fa-caret-down {
     color:#6699CC;
     top: 46px;
