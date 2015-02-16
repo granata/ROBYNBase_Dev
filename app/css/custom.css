@@ -467,6 +467,13 @@ li.cart a i.fa-shopping-cart {
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
 	color: #6699CC;
 }
+.dropdown-menu, .dropdown-mega .dropdown-menu {
+    background-clip: padding-box;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.176);
+}
 
 .navbar .container .navbar-nav li.active .fa-caret-down, .navbar .container-view .navbar-nav li.active .fa-caret-down {
     color:#6699CC;
@@ -512,7 +519,7 @@ ul.topNav {
 
 .main .dropdown-menu {
     background-color: #FFF;
-    border: 1px solid #6699CC;
+    border: 1px solid #FFF;
     border-top:0;
     float: none;
     left:auto;
