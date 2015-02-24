@@ -119,7 +119,6 @@ four51.app.factory('ProductDisplayService', ['$sce', '$451', 'Variant', 'Product
                 angular.forEach (scope.LineItem.Product.StaticSpecGroups.GalleryImages.Specs, function(spec) {
                     var image = {};
                     image.url = spec.FileURL;
-                    image.thumbUrl = scope.LineItem.Product.StaticSpecGroups.GalleryThumbs.Specs[count].FileURL;
                     image.Number = count;
                     scope.LineItem.images.push(image);
                     count++;
