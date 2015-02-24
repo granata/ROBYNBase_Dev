@@ -916,4 +916,10 @@ float:left;
 
 .saved-cards > .form-control {
 	display: inline-block;
+	width: auto;
+}
+
+.saved-cards > .btn.btn-danger.cart-view-btn-remove {
+    left: 6px;
+    top: 2px;
 }
