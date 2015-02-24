@@ -52,13 +52,13 @@
     </div>
     <div ng-if="user.Permissions.contains('PayByCreditCard')" ng-show="currentOrder.PaymentMethod == 'CreditCard'">
         <div class="row view-form-icon" ng-if="paymentSelection.SavedCards">
-            <div class="col-sm-6" ng-class="{'view-form-select-saved': !currentOrder.CreditCardID, '': currentOrder.CreditCardID }">
+            <div class="col-sm-6 saved-cards" ng-class="{'view-form-select-saved': !currentOrder.CreditCardID, '': currentOrder.CreditCardID }">
                 <label>{{('Saved' | r) + ' ' +  ('Card' | r) | xlat}}</label>
-                <select class="form-control" ng-model="currentOrder.CreditCardID" ng-options="card.ID as card.Name for card in paymentSelection.SavedCards">
+                <select class="form-control col-sm-9" ng-model="currentOrder.CreditCardID" ng-options="card.ID as card.Name for card in paymentSelection.SavedCards">
                     <option value="" />
                 </select>
                 <i class="fa fa-credit-card"></i>
-                <button ng-show="showDelete(currentOrder.CreditCardID)" title="Delete" class="btn btn-danger cart-view-btn-remove" ng-click="deleteSavedCard(currentOrder.CreditCardID)">
+                <button ng-show="showDelete(currentOrder.CreditCardID)" title="Delete" class="btn btn-danger cart-view-btn-remove col-sm-1" ng-click="deleteSavedCard(currentOrder.CreditCardID)">
                     <span class="fa fa-minus-circle fa-inverse"></span>
                 </button>
             </div>

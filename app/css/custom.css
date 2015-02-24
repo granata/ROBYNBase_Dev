@@ -913,3 +913,7 @@ float:left;
         display:none;
     }
 }
+
+.saved-cards > .form-control {
+	display: inline-block;
+}
