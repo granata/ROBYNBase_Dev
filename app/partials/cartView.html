@@ -190,7 +190,7 @@
                             <small ng-if="currentOrder.Status == 'AwaitingApproval'">{{('Cancel' | r) + ' ' + ('Edit' | r) | xlat}}</small>
                         </button>
                     </li>
-                    <li class="col-lg-4"><!--add .col-lg-4-->
+                    <li class="col-lg-4" ng-show="user.Type != 'TempCustomer'"><!--add .col-lg-4-->
                         <button type="submit" class="btn btn-primary btn-block" ng-click="saveChanges()">
                             <loadingindicator  ng-show="displayLoadingIndicator" />
                             <small>{{('Save' | r) + ' ' + ('Order' | r) | xlat}}</small>
