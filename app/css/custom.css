@@ -923,3 +923,10 @@ float:left;
     left: 6px;
     top: 2px;
 }
+small.ng-binding.ng-hide {
+    display: block !important;
+    visibility: hidden;
+}
+.text-info.prod-id {
+	font-size: 12px;color:#aaa
+}
