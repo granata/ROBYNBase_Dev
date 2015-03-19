@@ -242,6 +242,47 @@ fieldset[disabled] .btn-warning.active {
     color:white;
 }
 
+.checkout-buttons .btn-success {
+	background-color: #66cc00;
+	border-color: #66cc00;
+	color:white;
+}
+
+.checkout-buttons small.ng-binding.ng-hide {
+    display: none !important;
+}
+
+.btn-lg, .btn-group-lg > .btn {
+    border-radius: 6px;
+    font-size: 18px;
+    line-height: normal;
+    padding: 10px 16px;
+    text-transform: uppercase;
+}
+
+.checkout-buttons .btn {
+    border-radius: 6px;
+    font-size: 16px;
+    line-height: normal;
+    padding: 10px 16px;
+    text-transform: uppercase;
+}
+
+.checkout-buttons .btn-danger {
+	font-size: inherit;
+	padding: 11px 16px;
+}
+
+.cart-buttons li {
+    margin-bottom: 20px;
+}
+
+.checkout-buttons .btn.btn-warning {
+    background-color: #f5f5f5;
+    border-color: #dddddd;
+    color: #6699cc;
+}
+
 .cart-buttons .btn-success:hover,
 .cart-buttons .btn-success:active,
 .cart-buttons .btn-success:focus{
