@@ -971,3 +971,7 @@ small.ng-binding.ng-hide {
 .text-info.prod-id {
 	font-size: 12px;color:#aaa
 }
+.btn-success[disabled] {
+	background-color: #f5f5f5;
+	border-color: #dddddd;
+}
