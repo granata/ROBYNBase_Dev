@@ -31,7 +31,7 @@
 <!-- PRODUCT IMAGE PANEL!-->
 <div class="col-md-4 col-collapse">
     <!-- lightbox -->
-    <div class="panel panel-default" ng-if="LineItem.Product.StaticSpecGroups.PDT.Specs.lightbox">
+    <div class="panel panel-default" ng-if="LineItem.Product.Type == 'Static'">
         <div class="panel-body">
             <div class="galleryImages">
                 <ul>
@@ -46,7 +46,7 @@
                 </ul>
             </div>
         </div>
-        <div class="panel-footer">
+        <div class="panel-footer" ng-show="LineItem.Product.StaticSpecGroups.PDT.Specs.lightbox">
             <ul class="galleryThumbs">
                 <li ng-repeat="image in LineItem.images">
                     <a ng-click="$parent.index=$index" ng-class="{active: $index==$parent.index}">
@@ -57,7 +57,7 @@
         </div>
     </div><!--.panel panel-default if lightbox-->
     <!-- lightbox -->
-    <div class="panel panel-no-panels" ng-if="!LineItem.Product.StaticSpecGroups.PDT.Specs.lightbox">
+    <div class="panel panel-no-panels" ng-if="!LineItem.Product.Type == 'Static'">
         <div class="panel-body">
             <loadingindicator ng-show="loadingImage && LineItem.Variant.IsMpowerVariant" />
             <figure>
@@ -68,20 +68,20 @@
             </div>
         </div>
         <div class="panel-footer" ng-show="LineItem.Product.Type=='VariableText' && LineItem.Variant">
-					<span class="btn-group">
-						<button ng-if="currentOrder.Status != 'AwaitingApproval'" class="btn btn-default" redirect="/product/{{LineItem.Product.InteropID}}/{{LineItem.Variant.InteropID}}/edit">
+                    <span class="btn-group">
+                        <button ng-if="currentOrder.Status != 'AwaitingApproval'" class="btn btn-default" redirect="/product/{{LineItem.Product.InteropID}}/{{LineItem.Variant.InteropID}}/edit">
                             {{'Edit' | r | xlat}}
                         </button>
-						<button ng-if="currentOrder.Status == 'AwaitingApproval'" class="btn btn-default" redirect="/product/{{LineItem.Product.InteropID}}/{{LineItem.Variant.InteropID}}/{{LineItemIndex}}/{{currentOrder.ID}}/edit">
+                        <button ng-if="currentOrder.Status == 'AwaitingApproval'" class="btn btn-default" redirect="/product/{{LineItem.Product.InteropID}}/{{LineItem.Variant.InteropID}}/{{LineItemIndex}}/{{currentOrder.ID}}/edit">
                             {{'Edit' | r | xlat}}
                         </button>
-						<button class="btn btn-default" ng-if="currentOrder.Status != 'AwaitingApproval'" ng-click="deleteVariant(LineItem.Variant, true)">
+                        <button class="btn btn-default" ng-if="currentOrder.Status != 'AwaitingApproval'" ng-click="deleteVariant(LineItem.Variant, true)">
                             {{'Remove' | r | xlat}}
                         </button>
-						<button class="btn btn-default" ng-click="getPdf(LineItem.Variant.ProofUrl)">
+                        <button class="btn btn-default" ng-click="getPdf(LineItem.Variant.ProofUrl)">
                             {{('View' | r) + ' ' + ('PDF' | r) | xlat}}
                         </button>
-					</span>
+                    </span>
         </div>
     </div><!--.panel panel-default if NO lightbox-->
 </div><!--.col-md-5 col-collapse-->
@@ -92,9 +92,9 @@
             <h2 id="451qa_prod_name">
                 {{LineItem.Product.Name}}
             </h2>
-            <!--<h2 ng-show="LineItem.Variant.ExternalID">
-                {{LineItem.Variant.ExternalID}}
-            </h2>-->
+            <h4 ng-show="LineItem.Product.ExternalID" class="text-info prod-id">
+                {{'#' | r | xlat}}{{LineItem.Product.ExternalID}}
+            </h4>
             <h4 class="text-success" ng-show="LineItem.PriceSchedule.PriceBreaks.length == 1" ng-if="!(user.Permissions.contains('HidePricing'))">
                 {{LineItem.PriceSchedule.PriceBreaks[0].Price | culturecurrency}}
             </h4>
@@ -108,7 +108,7 @@
                     {{'Description' | r | xlat}}
                 </h3>
             </div>
-            <div class="panel-body" id="451_area_prod_desc">
+            <div class="panel-body prodDesc" id="451_area_prod_desc">
                 <!--<h4 ng-show="LineItem.Product.ExternalID" class="text-info">
                     {{'ID' | r | xlat}}: {{LineItem.Product.ExternalID}}
                 </h4>-->
@@ -234,9 +234,9 @@
                                     <loadingindicator ng-show="addToOrderIndicator" />
                                     <i ng-show="lineItemErrors.length > 0" class="fa fa-warning"></i>
                                     {{addToOrderText | r}}
-											<span id="451qa_lineitem_total" class="badge" ng-if="!(user.Permissions.contains('HidePricing')) && (LineItem.LineTotal || variantLineItemsOrderTotal) > 0">
-												{{(LineItem.LineTotal || variantLineItemsOrderTotal) | currency}}
-											</span>
+                                            <span id="451qa_lineitem_total" class="badge" ng-if="!(user.Permissions.contains('HidePricing')) && (LineItem.LineTotal || variantLineItemsOrderTotal) > 0">
+                                                {{(LineItem.LineTotal || variantLineItemsOrderTotal) | currency}}
+                                            </span>
                                 </button>
                             </div>
                         </div>
