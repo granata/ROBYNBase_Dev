@@ -10,9 +10,11 @@
             <i class="col-xs-1 pull-left" ng-class="{'fa fa-warning': cart_order.$invalid, 'fa fa-check-circle': !cart_order.$invalid }"></i>
             <span class="text-center">{{'Order Details' | r | xlat}}</span>
             <span class="col-xs-1 pull-right">
-                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'order details'" ng-click="checkOutSection = 'order details'">edit</btn>
-                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'order details' && !cart_shipping.$invalid && cart_billing.$invalid" ng-click="checkOutSection = 'shipping'">close</btn>
+                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'shipping" ng-click="checkOutSection = 'order details'">edit</btn>
                 <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'approval'" ng-click="checkOutSection = 'order details'">edit</btn>
+                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'billing'" ng-click="checkOutSection = 'order details'">edit</btn>
+                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'order details' && !cart_shipping.$invalid && cart_billing.$invalid" ng-click="checkOutSection = 'shipping'">close</btn>
+                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'order details' && !cart_shipping.$invalid && !cart_billing.$invalid" ng-click="checkOutSection = 'billing'">close</btn>
                 <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'order details' && !cart_shipping.$invalid && !cart_billing.$invalid" ng-click="checkOutSection = 'approval'">close</btn>
             </span>
         </h3>
