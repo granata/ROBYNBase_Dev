@@ -13,10 +13,6 @@
                 <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'shipping'" ng-click="checkOutSection = 'order'">edit</btn>
                 <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'approval'" ng-click="checkOutSection = 'order'">edit</btn>
                 <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'billing'" ng-click="checkOutSection = 'order'">edit</btn>
-                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'order' && cart_shipping.$invalid && cart_billing.$invalid" ng-click="checkOutSection = 'shipping'">close</btn>
-                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'order' && !cart_shipping.$invalid && cart_billing.$invalid" ng-click="checkOutSection = 'billing'">close</btn>
-                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'order' && !cart_shipping.$invalid && !cart_billing.$invalid" ng-click="checkOutSection = 'shipping'">close</btn>
-                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'order' && !cart_shipping.$invalid && !cart_billing.$invalid && cart_approval.$invalid" ng-click="checkOutSection = 'approval'">close</btn>
             </span>
         </h3>
         <!--edit/close order buttons-->

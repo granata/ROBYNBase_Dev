@@ -11,9 +11,6 @@
             <span class="text-center">{{'Shipping' | r | xlat}}</span>
             <span class="col-xs-1 pull-right">
                 <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'billing' && !cart_shipping.$invalid" ng-click="checkOutSection = 'shipping'">edit</btn>
-                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'shipping' && !cart_shipping.$invalid && cart_billing.$invalid" ng-click="checkOutSection = 'billing'">close</btn>
-                <btn class="pull-right btn btn-sm btn-primary" ng-show="user.Groups[0].Name == 'Affiliates' && checkOutSection == 'approval' && !cart_shipping.$invalid" ng-click="checkOutSection = 'shipping'">edit</btn>
-                <btn class="pull-right btn btn-sm btn-primary" ng-show="user.Groups[0].Name == 'Affiliates'&& checkOutSection == 'shipping' && !cart_shipping.$invalid && !cart_billing.$invalid" ng-click="checkOutSection = 'approval'">close</btn>
             </span>
         </h3>
         <!--edit/close shipping buttons-->
@@ -98,6 +95,7 @@
                         </div>
                     </div>
             </form>
+            <btn class="pull-right btn btn-sm btn-primary" ng-show="!cart_shipping.$invalid" ng-click="checkOutSection = 'billing'">Continue</btn>
         </div>
     </div>
 </div>
