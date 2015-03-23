@@ -979,3 +979,12 @@ small.ng-binding.ng-hide {
     list-style-type: disc;
     margin: 1em 2em;
 }
+btn.continue {
+    background-color: #6699cc;
+    border: 1px solid #6699cc;
+    color: #ffffff;
+    margin-top: 20px;
+}
+.panel-order .panel-heading {
+    cursor: auto;
+}
