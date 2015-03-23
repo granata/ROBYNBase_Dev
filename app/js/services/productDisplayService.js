@@ -112,9 +112,9 @@ four51.app.factory('ProductDisplayService', ['$sce', '$451', 'Variant', 'Product
         if (scope.LineItem.Product.StaticSpecGroups) {
 
             if (scope.LineItem.Product.StaticSpecGroups.GalleryImages) {
+                var count = 1;
 
                 scope.LineItem.images = [];
-                var count = 1;
 
                 angular.forEach (scope.LineItem.Product.StaticSpecGroups.GalleryImages.Specs, function(spec) {
                     var image = {};
@@ -125,6 +125,22 @@ four51.app.factory('ProductDisplayService', ['$sce', '$451', 'Variant', 'Product
                     count++;
                 });
             }
+            else{
+	        	scope.LineItem.images = [];
+	        	var image = {};
+	            image.url = scope.LineItem.Product.LargeImageUrl;
+	            image.thumbUrl = scope.LineItem.Product.LargeImageUrl;
+	            image.Number = 1;
+	            scope.LineItem.images.push(image);
+	        }
+        }
+        else{
+        	scope.LineItem.images = [];
+        	var image = {};
+            image.url = scope.LineItem.Product.LargeImageUrl;
+            image.thumbUrl = scope.LineItem.Product.LargeImageUrl;
+            image.Number = 1;
+            scope.LineItem.images.push(image);
         }
 
         /*if (scope.LineItem.Specs && scope.LineItem.Product.StaticSpecGroups) {

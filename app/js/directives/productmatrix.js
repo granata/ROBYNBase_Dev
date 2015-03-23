@@ -1,4 +1,4 @@
-four51.app.factory('ProductMatrix', ['$resource', '$451', 'Variant', function($resource, $451, Variant) {
+four51.app.factory('ProductMatrix', ['$resource', '$451', 'Variant', 'User', function($resource, $451, Variant, User) {
     function _then(fn, data, count, s1, s2) {
         if (angular.isFunction(fn))
             fn(data, count, s1, s2);
@@ -86,6 +86,19 @@ four51.app.factory('ProductMatrix', ['$resource', '$451', 'Variant', function($r
 
         function getVariantData(p, params, group) {
             Variant.get({'ProductInteropID': p.InteropID, 'SpecOptionIDs': params}, function(variant){
+                    variant.Logos = [];
+                    User.get(function (user) {
+                        angular.forEach(user.CustomFields, function(f) {
+                            if (f.Name.indexOf('Logo') > -1) {
+                                var s = {
+                                    'imageUrl': f.File.Url,
+                                    'label': f.Label
+                                };
+                                variant.Logos.push(s);
+                            }
+                        });
+                    });
+
                     variant.DisplayName = [];
                     variant.Markup = params.Markup;
                     variant.tempSpecs = {};
@@ -95,11 +108,27 @@ four51.app.factory('ProductMatrix', ['$resource', '$451', 'Variant', function($r
                             if (option.ID == params[0]) {
                                 variant.tempSpecs[spec.Name] = {};
                                 variant.tempSpecs[spec.Name].Value = option.Value;
+                                if(spec.Name == "Logo"){
+                                    angular.forEach(variant.Logos, function(logo){
+                                        if(logo.label == option.Value){
+                                            variant.tempSpecs[spec.Name].imageUrl = logo.imageUrl;
+                                        }
+                                    });
+
+                                }
                                 variant.DisplayName[0] = option.Value;
                             }
                             if (option.ID == params[1]) {
                                 variant.tempSpecs[spec.Name] = {};
                                 variant.tempSpecs[spec.Name].Value = option.Value;
+                                if(spec.Name == "Logo"){
+                                    angular.forEach(variant.Logos, function(logo){
+                                        if(logo.label == option.Value){
+                                            variant.tempSpecs[spec.Name].imageUrl = logo.imageUrl;
+                                        }
+                                    });
+
+                                }
                                 variant.DisplayName[1] = option.Value;
                             }
                         });
@@ -247,7 +276,7 @@ four51.app.directive('productmatrix', function() {
             "    </div>" +
             "    <div ng-show=\"specCount == 1\">" +
             "        <div class=\"row matrix-grid\">" +
-            "            <div class=\"col-xs-3\"><div>{{spec1Name}}</div><div ng-repeat=\"group in comboVariants | orderobjectby:'ListOrder':false\"><b>{{group.DisplayName}}</b></div></div>" +
+            "            <div class=\"col-xs-3\"><div>{{spec1Name}}</div><div ng-repeat=\"group in comboVariants | orderobjectby:'ListOrder':false\"><b ng-show=\"!group[0].tempSpecs.Logo.imageUrl\">{{group.DisplayName}}</b><img class=\"img-responsive\" ng-show=\"group[0].tempSpecs.Logo.imageUrl\" ng-src=\"{{group[0].tempSpecs.Logo.imageUrl}}\" /></div></div>" +
             "            <div class=\"col-xs-2\" ng-show=\"product.DisplayInventory\"><div>{{'Quantity Available' | r}}</div><div ng-repeat=\"group in comboVariants | orderobjectby:'ListOrder':false\">{{group.QuantityAvailable}}</div></div>" +
             "            <div class=\"col-xs-2\" ng-show=\"displayOnOrder\"><div>{{'On Order' | r}}</div><div ng-repeat=\"group in comboVariants | orderobjectby:'ListOrder':false\">{{group.OrderQuantity}}</div></div>" +
             "            <div class=\"col-xs-2\"><div>{{'Price' | r}}</div><div ng-repeat=\"group in comboVariants | orderobjectby:'ListOrder':false\">{{(product.StandardPriceSchedule.PriceBreaks[0].Price + group.Markup) | currency}}</div></div>" +
@@ -296,7 +325,7 @@ four51.app.controller('ProductMatrixCtrl', ['$scope', '$routeParams', '$route', 
             }, 1, 100, searchTerm);
         }
         init($scope.searchTerm);
-
+        
         function lineItemEdit() {
             var lineItemIndex = $routeParams.lineItemIndex ? +($routeParams.lineItemIndex) : null;
             if (lineItemIndex != null) {

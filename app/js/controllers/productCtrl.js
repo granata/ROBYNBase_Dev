@@ -10,6 +10,29 @@ four51.app.controller('ProductCtrl', ['$scope', '$routeParams', '$route', '$loca
 		currentPage: 1,
 		pageSize: 10
 	};
+	$scope.showLogos = false;
+	$scope.Logos = {};
+    User.get(function (user) {
+        angular.forEach(user.CustomFields, function(f) {
+            if (f.Name.indexOf('Logo') > -1) {
+                var a = {};
+                a.imageUrl = f.File.Url;
+                a.label = f.Label;
+                $scope.Logos[f.Label] = a;
+            }
+        });
+    });
+
+    $scope.setLogoSelection = function(option) {
+		angular.forEach($scope.LineItem.Specs.Logo.Options, function(logoOption){
+			if(option == logoOption.Value){
+				$scope.LineItem.Specs.Logo.Value = logoOption.Value;
+				$scope.LineItem.Specs.Logo.SelectedOptionID = logoOption.ID;
+				$scope.specChanged($scope.LineItem.Specs.Logo);
+				$scope.showLogos = false;
+			}
+		});
+	};
 
 	$scope.calcVariantLineItems = function(i){
 		$scope.variantLineItemsOrderTotal = 0;
@@ -47,7 +70,13 @@ four51.app.controller('ProductCtrl', ['$scope', '$routeParams', '$route', '$loca
 		if (n != o || (n == 1 && o == 1))
 			init($scope.searchTerm);
 	});
-
+	
+    $scope.$watch('LineItem.Product.Name', function(n,o){
+        if ( n!= o) {
+            //window.location.reload();
+        }
+    });
+    
         /*bootstrap lightbox*/
         $scope.$watch('LineItem.Specs.Color.Value', function(n,o){
             if ( n!= o) {
