@@ -14,7 +14,7 @@ function ($scope, $routeParams, $location, $filter, $rootScope, $451, Analytics,
     }
 
 	$scope.hasOrderConfig = OrderConfig.hasConfig($scope.currentOrder, $scope.user);
-	//$scope.checkOutSection = $scope.hasOrderConfig ? 'order' : 'shipping';
+	$scope.checkOutSection = $scope.hasOrderConfig ? 'order' : 'shipping';
 
     $scope.checkOutSection = 'shipping';
     $scope.$watch('currentOrder.ShipAddressID', function() {
