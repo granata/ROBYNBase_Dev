@@ -11,9 +11,7 @@
             <span class="text-center">{{'Order Details' | r | xlat}}</span>
             <span class="col-xs-1 pull-right">
                 <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'shipping' && !cart_order.$invalid" ng-click="checkOutSection = 'order'">edit</btn>
-                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'shipping' && !cart_shipping.$invalid && cart_billing.$invalid" ng-click="checkOutSection = 'billing'">close</btn>
-                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'approval' && !cart_shipping.$invalid" ng-click="checkOutSection = 'shipping'">edit</btn>
-                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'shipping' && !cart_shipping.$invalid && !cart_billing.$invalid" ng-click="checkOutSection = 'approval'">close</btn>
+                <btn class="pull-right btn btn-sm btn-primary" ng-show="checkOutSection == 'shipping' && !cart_order.$invalid && cart_shipping.$invalid" ng-click="checkOutSection = 'shipping'">close</btn>
             </span>
         </h3>
         <!--edit/close order buttons-->
