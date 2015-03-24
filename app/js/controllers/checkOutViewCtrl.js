@@ -17,21 +17,21 @@ function ($scope, $routeParams, $location, $filter, $rootScope, $451, Analytics,
 	$scope.checkOutSection = $scope.hasOrderConfig ? 'order' : 'shipping';
 
     $scope.checkOutSection = 'shipping';
-    $scope.$watch('currentOrder.ShipAddressID', function() {
-        if ($scope.currentOrder.ShipAddressID && $scope.currentOrder.ShipperID) {
-            $scope.checkOutSection = 'billing';
-        }
-    });
-    $scope.$watch('currentOrder.ShipperID', function() {
-        if ($scope.currentOrder.ShipAddressID && $scope.currentOrder.ShipperID) {
-            $scope.checkOutSection = 'billing';
-        }
-    });
-    $scope.$watch('cart_billing.$invalid', function() {
-        if (!$scope.cart_billing.$invalid && $scope.currentOrder.Approvals[index] !== null) {
-            $scope.checkOutSection = 'approval';
-        }
-    });
+//    $scope.$watch('currentOrder.ShipAddressID', function() {
+//        if ($scope.currentOrder.ShipAddressID && $scope.currentOrder.ShipperID) {
+//            $scope.checkOutSection = 'billing';
+//        }
+//    });
+//    $scope.$watch('currentOrder.ShipperID', function() {
+//        if ($scope.currentOrder.ShipAddressID && $scope.currentOrder.ShipperID) {
+//            $scope.checkOutSection = 'billing';
+//        }
+//    });
+//    $scope.$watch('cart_billing.$invalid', function() {
+//        if (!$scope.cart_billing.$invalid && $scope.currentOrder.Approvals[index] !== null) {
+//            $scope.checkOutSection = 'approval';
+//        }
+//    });
 
     function submitOrder() {
 	    $scope.displayLoadingIndicator = true;
