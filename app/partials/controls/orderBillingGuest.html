@@ -82,7 +82,7 @@
                 <!--custom-->
                 <div class="row">
                     <div class="col-xs-12">
-                        <div ng-repeat="field in currentOrder.OrderFields | filter: { Name: 'Code.org Guest Email'}">
+                        <div ng-repeat="field in currentOrder.OrderFields | filter: { Name: 'Guest Email'}">
                             <customtextfield customfield="field" ng-if="field.ControlType == 'Text'" ng-required="field.IsRequired" />
                             <customselectionfield customfield="field" ng-if="field.ControlType == 'Selection'" ng-required="field.IsRequired" />
                         </div>
