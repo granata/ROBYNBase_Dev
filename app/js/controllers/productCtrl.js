@@ -197,5 +197,9 @@ four51.app.controller('ProductCtrl', ['$scope', '$routeParams', '$route', '$loca
         $scope.direction = s.indexOf('DESC') > -1;
     });
     /*Add category tree to Products*/
-
+    
+    $scope.$watch('loadingImage', function(val) {
+    	if (!val) return;
+    	$scope.navStatus.visible = false;
+    });
 }]);
