@@ -14,17 +14,12 @@
             </li>
         </ul>
     </nav>
-    <aside class="col-sm-2 col-collapse visible-md visible-lg" ng-if="navStatus.visible">
-        <!--<div class="panel panel-default panel-nav">
-            <div class="panel-heading">
-                <h3 class="panel-title">
-                    {{'Category List' | r | xlat}}
-                </h3>
-            </div>-->
-            <!--<nav class="nav 451qa_sidenav panel-body">-->
-            <div class="panel-nav">
-            <nav class="nav 451qa_sidenav">
-                <categorytree tree='tree' current='currentCategory' />
+    <aside class="col-sm-2 col-collapse" ng-if="navStatus.visible">
+        <div class="panel-nav">
+            <nav class="nav 451qa_sidenav panel-body">
+                <ul>
+                    <categorytree tree='tree' current='currentCategory' />
+                </ul>
             </nav>
         </div>
     </aside>
