@@ -53,7 +53,7 @@ function ($routeParams, $sce, $scope, $451, Category, Product, Nav) {
 		$scope.direction = s.indexOf('DESC') > -1;
 	});
 	
-	$scope.$watch('slides', function(val) {
+	$scope.$watch('Slides', function(val) {
 		if (!val) return;
 		$scope.navStatus.visible = true;
 	});
