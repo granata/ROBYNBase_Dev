@@ -873,12 +873,13 @@ float:left;
 
 .galleryImages .active .product-image-large {
     display:block !important;
-    max-height:290px;
     max-width: 100%;
     position:relative;
     top:0;
 }
-
+.product-image-large {
+	max-height: none;
+}
 /**/
 .lightbox-nav {
     position: relative;

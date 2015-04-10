@@ -14,7 +14,7 @@
         </li>
     </ul>
 </nav>
-<aside class="col-sm-2 col-collapse visible-md visible-lg" ng-if="navStatus.visible">
+<aside class="col-sm-2 col-collapse hidden-md hidden-lg" ng-if="navStatus.visible">
     <div class="panel-nav">
         <nav class="nav 451qa_sidenav panel-body">
             <ul>
@@ -27,9 +27,9 @@
 <loadingindicator ng-show="loadingIndicator" title="{{'Please wait while we fetch product information' | r | xlat}}" />
 <!-- BREADCRUMB!-->
 <productnav product="LineItem.Product" variant="LineItem.Variant" />
-<div class="col-collapse" ng-class="{ 'col-md-12': !navStatus.visible, 'col-md-9 col-md-offset-1': navStatus.visible }" >
+<div class="col-collapse" ng-class="{ 'col-md-12': !navStatus.visible, 'col-md-12': navStatus.visible }" >
 <!-- PRODUCT IMAGE PANEL!-->
-<div class="col-md-4 col-collapse">
+<div class="col-md-6 col-collapse">
     <!-- lightbox -->
     <div class="panel panel-default" ng-if="LineItem.Product.Type == 'Static'">
         <div class="panel-body">
@@ -37,10 +37,10 @@
                 <ul>
                     <li ng-repeat="image in LineItem.images">
                         <a class="hidden-xs" ng-click="openLightboxModal($index)" ng-class="{active: $index==$parent.index}">
-                            <img ng-src="{{image.url}}" class="product-image-large img-responsive" />
+                            <img ng-src="{{LineItem.Variant.LargeImageUrl || image.url}}" class="product-image-large img-responsive" imageonload/>
                         </a>
                         <a class="no-click visible-xs" ng-class="{active: $index==$parent.index}">
-                            <img ng-src="{{image.url}}" class="product-image-large img-responsive" />
+                            <img ng-src="{{LineItem.Variant.LargeImageUrl || image.url}}" class="product-image-large img-responsive" imageonload/>
                         </a>
                     </li>
                 </ul>
@@ -57,7 +57,7 @@
         </div>
     </div><!--.panel panel-default if lightbox-->
     <!-- lightbox -->
-    <div class="panel panel-no-panels" ng-if="!LineItem.Product.Type == 'Static'">
+    <div class="panel panel-no-panels" ng-if="LineItem.Product.Type != 'Static'">
         <div class="panel-body">
             <loadingindicator ng-show="loadingImage && LineItem.Variant.IsMpowerVariant" />
             <figure>
@@ -85,7 +85,7 @@
         </div>
     </div><!--.panel panel-default if NO lightbox-->
 </div><!--.col-md-5 col-collapse-->
-<div class="col-md-7 col-md-offset-1 col-collapse">
+<div class="col-md-5 col-md-offset-1 col-collapse">
     <!-- PRODUCT INFO!-->
     <div class="row panel-header">
         <div class="col-xs-12">
@@ -108,7 +108,7 @@
                     {{'Description' | r | xlat}}
                 </h3>
             </div>
-            <div class="panel-body prodDesc" id="451_area_prod_desc">
+            <div class="panel-body" id="451_area_prod_desc">
                 <!--<h4 ng-show="LineItem.Product.ExternalID" class="text-info">
                     {{'ID' | r | xlat}}: {{LineItem.Product.ExternalID}}
                 </h4>-->
@@ -200,7 +200,7 @@
                 </div>
                 <ordertypeselector ng-show="(canAddToStandardOrder && canAddToReplenishmentOrder && !currentOrder.ID)"></ordertypeselector>
                 <!--custom-->
-                <div ng-if="LineItem.Product.IsVBOSS && LineItem.Product.SpecCount < 3">
+                <div ng-if="LineItem.Product.IsVBOSS && LineItem.Product.SpecCount < 2">
                     <div id="451_list_vspec">
                         <div class="form-group" ng-repeat="s in LineItem.Specs | DefinesVariant | onproperty:[{Property: 'CanSetForLineItem', Value: true}, {Property: 'DefinesVariant', Value: true}]">
                             <customfilefield customfield="s" ng-if="s.ControlType == 'File'"></customfilefield>
@@ -210,7 +210,7 @@
                     </div>
                     <productmatrix />
                 </div>
-                <div ng-if="!LineItem.Product.IsVBOSS || LineItem.Product.IsVBOSS && LineItem.Product.SpecCount > 2">
+                <div ng-if="!LineItem.Product.IsVBOSS || LineItem.Product.IsVBOSS && LineItem.Product.SpecCount > 1">
                     <addtoorderspecs ng-show="allowAddToOrder"></addtoorderspecs>
                     <div class="form-group" ng-show="allowAddToOrder">
                         <p ng-show="LineItem.Product.DisplayInventory && (LineItem.Variant || LineItem.Product.Variants.length == 0)">
