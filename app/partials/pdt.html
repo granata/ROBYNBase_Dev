@@ -1,10 +1,10 @@
 <!-- CAT TREE!-->
 <nav id="451qa_nav_hdr" class="nav">
     <ul>
-        <li class="hidden-xs hidden-sm">
-            <span ng-click="toggleNav()"><i class="fa fa-bars" ng-class="{ 'text-info': navStatus.visible }"></i></span>
+        <li>
+            <span ng-click="toggleNav()"><i class="fa fa-bars" ng-class="{ 'text-info': navStatus.hidden }"></i></span>
         </li>
-        <li class="hidden-xs hidden-sm">
+        <li>
             <span id="451_lbl_curcat" class="text-primary" ng-bind-html="currentCategory.Name || '  {{'Categories' | r | xlat}}'"></span>
         </li>
         <li class="pull-right">
@@ -14,7 +14,7 @@
         </li>
     </ul>
 </nav>
-<aside class="col-sm-2 col-collapse hidden-md hidden-lg" ng-if="navStatus.visible">
+<aside class="col-sm-2 col-collapse" ng-if="navStatus.visible">
     <div class="panel-nav">
         <nav class="nav 451qa_sidenav panel-body">
             <ul>
@@ -27,7 +27,7 @@
 <loadingindicator ng-show="loadingIndicator" title="{{'Please wait while we fetch product information' | r | xlat}}" />
 <!-- BREADCRUMB!-->
 <productnav product="LineItem.Product" variant="LineItem.Variant" />
-<div class="col-collapse" ng-class="{ 'col-md-12': !navStatus.visible, 'col-md-12': navStatus.visible }" >
+<div class="col-collapse" ng-class="{ 'col-md-12': !navStatus.visible, 'col-md-10': navStatus.visible }" >
 <!-- PRODUCT IMAGE PANEL!-->
 <div class="col-md-6 col-collapse">
     <!-- lightbox -->
