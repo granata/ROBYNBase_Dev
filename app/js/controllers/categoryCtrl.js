@@ -52,4 +52,9 @@ function ($routeParams, $sce, $scope, $451, Category, Product, Nav) {
 			$scope.sorter = s.replace(' DESC', "");
 		$scope.direction = s.indexOf('DESC') > -1;
 	});
+	
+	$scope.$watch('slides', function(val) {
+		if (!val) return;
+		$scope.navStatus.visible = true;
+	});
 }]);
