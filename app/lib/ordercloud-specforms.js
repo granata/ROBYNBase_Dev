@@ -442,6 +442,7 @@ function occheckboxfield() {
             '<div class="checkbox">',
             '<label ng-class="{\'required\': customfield.Required}">{{customfield.Label || customfield.Name}}',
             '<input type="checkbox" ng-true-value="{{checked}}" ng-false-value="{{unchecked}}" ng-model="customfield.Value">',
+            '{{customfield.Label}}',
             '</label>',
             '</div>',
         ].join('');
