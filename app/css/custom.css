@@ -989,3 +989,6 @@ btn.continue {
 .panel-order .panel-heading {
     cursor: auto;
 }
+orderbilling .btn-group {
+	margin-top: 15px;
+}
