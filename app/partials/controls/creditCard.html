@@ -35,11 +35,13 @@
                 <i class="fa fa-lock"></i>
             </div>
         </div>
-        <div class="checkbox" ng-if="user.Permissions.contains('AllowSaveCreditCard')" ng-show="!currentOrder.CreditCardID">
-            <label>
-                <input ng-model="currentOrder.CreditCard.Save"  type="checkbox" />
-                <small><b>{{'Save my credit card information' | r | xlat}}</b></small>
-            </label>
+        <div ng-if="user.Type != 'TempCustomer'">
+            <div class="checkbox" ng-if="user.Permissions.contains('AllowSaveCreditCard')" ng-show="!currentOrder.CreditCardID">
+                <label>
+                    <input ng-model="currentOrder.CreditCard.Save"  type="checkbox" />
+                    <small><b>{{'Save my credit card information' | r | xlat}}</b></small>
+                </label>
+            </div>
         </div>
     </div>
 

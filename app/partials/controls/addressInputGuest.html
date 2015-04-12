@@ -17,13 +17,13 @@
                     <i class="fa fa-edit"></i>
                 </div>
                 <div class="col-sm-6">
-                    <label ng-show="address.FirstName || address.IsBilling" ng-class="{required: address.IsBilling}">{{('First' | r) + ' ' + ('Name' | r) | xlat}}</label>
-                    <input name="firstname" class="form-control" type="text" ng-model="address.FirstName" placeholder="{{('First' | r) + ' ' + ('Name' | r) | xlat}}" autocomplete="off" ng-required="address.IsBilling" />
+                    <label ng-show="address.FirstName || address.IsBilling" ng-class="required">{{('First' | r) + ' ' + ('Name' | r) | xlat}}</label>
+                    <input name="firstname" class="form-control" type="text" ng-model="address.FirstName" placeholder="{{('First' | r) + ' ' + ('Name' | r) | xlat}}" autocomplete="off" required />
                     <i class="fa fa-user"></i>
                 </div>
                 <div class="col-sm-6">
-                    <label ng-show="address.LastName || address.IsBilling" ng-class="{required: address.IsBilling}">{{('Last' | r) + ' ' + ('Name' | r) | xlat}}</label>
-                    <input name="lastname" class="form-control" type="text" ng-model="address.LastName" placeholder="{{('Last' | r) + ' ' + ('Name' | r) | xlat}}" autocomplete="off" ng-required="address.IsBilling" />
+                    <label ng-show="address.LastName || address.IsBilling" ng-class="required">{{('Last' | r) + ' ' + ('Name' | r) | xlat}}</label>
+                    <input name="lastname" class="form-control" type="text" ng-model="address.LastName" placeholder="{{('Last' | r) + ' ' + ('Name' | r) | xlat}}" autocomplete="off" required />
                     <i class="fa fa-user"></i>
                 </div>
             </div>
