@@ -16,6 +16,10 @@ function ($scope, $routeParams, $location, $filter, $rootScope, $451, Analytics,
 	$scope.hasOrderConfig = OrderConfig.hasConfig($scope.currentOrder, $scope.user);
 	$scope.checkOutSection = $scope.hasOrderConfig ? 'order' : 'shipping';
 
+    $scope.$watch('checkOutSection',function(val){
+
+    });
+
 //    $scope.checkOutSection = 'shipping';
 //    $scope.$watch('currentOrder.ShipAddressID', function() {
 //        if ($scope.currentOrder.ShipAddressID && $scope.currentOrder.ShipperID) {
@@ -36,23 +40,56 @@ function ($scope, $routeParams, $location, $filter, $rootScope, $451, Analytics,
     function submitOrder() {
 	    $scope.displayLoadingIndicator = true;
 	    $scope.errorMessage = null;
-        Order.submit($scope.currentOrder,
-	        function(data) {
-				$scope.user.CurrentOrderID = null;
-				User.save($scope.user, function(data) {
-			        $scope.user = data;
-	                $scope.displayLoadingIndicator = false;
-		        });
-		        $scope.currentOrder = null;
-		        $location.path('/order/' + data.ID);
-	        },
-	        function(ex) {
-		        $scope.errorMessage = ex.Message;
-		        $scope.displayLoadingIndicator = false;
-		        $scope.shippingUpdatingIndicator = false;
-		        $scope.shippingFetchIndicator = false;
-	        }
-        );
+        if($scope.user.Type == "TempCustomer"){
+            angular.forEach($scope.currentOrder.OrderFields, function(of){
+                if(of.Label == "Email Address"){
+                    $scope.user.GuestCheckout = true;
+                    $scope.user.Email = of.Value;
+                    $scope.user.FirstName = "Guest";
+                    $scope.user.LastName = "User";
+                    $scope.user.Password = "Guest1234";
+                    $scope.user.ConfirmPassword = "Guest1234";
+                    User.save($scope.user, function(data) {
+                        Order.submit($scope.currentOrder,
+                            function(data) {
+                                $scope.user.CurrentOrderID = null;
+                                User.save($scope.user, function(data) {
+                                    $scope.user = data;
+                                    $scope.displayLoadingIndicator = false;
+                                });
+                                $scope.currentOrder = null;
+                                $location.path('/order/' + data.ID);
+                            },
+                            function(ex) {
+                                $scope.errorMessage = ex.Message;
+                                $scope.displayLoadingIndicator = false;
+                                $scope.shippingUpdatingIndicator = false;
+                                $scope.shippingFetchIndicator = false;
+                            }
+                        );
+                    });
+                }
+            });
+        }
+       else {
+            Order.submit($scope.currentOrder,
+                function (data) {
+                    $scope.user.CurrentOrderID = null;
+                    User.save($scope.user, function (data) {
+                        $scope.user = data;
+                        $scope.displayLoadingIndicator = false;
+                    });
+                    $scope.currentOrder = null;
+                    $location.path('/order/' + data.ID);
+                },
+                function (ex) {
+                    $scope.errorMessage = ex.Message;
+                    $scope.displayLoadingIndicator = false;
+                    $scope.shippingUpdatingIndicator = false;
+                    $scope.shippingFetchIndicator = false;
+                }
+            );
+        }
     };
 
 	$scope.$watch('currentOrder.CostCenter', function() {

@@ -23,7 +23,7 @@
                         <orderhistorysummary ng-if="!(user.Permissions.contains('HidePricing'))"></orderhistorysummary>
                     </div>
                     <div class="panel-footer" ng-if="order.FromUserID == user.ID && order.Status != 'Unsubmitted'">
-                        <button ng-disabled="currentOrder" class="btn btn-primary pull-right" ng-click="repeatOrder()">
+                        <button ng-disabled="currentOrder" class="btn btn-primary pull-right" ng-click="repeatOrder()" ng-if="user.Type != 'TempCustomer'">
                             <i ng-show="currentOrder" class="fa fa-warning"></i>
                             {{('Repeat' | r) + ' ' + ('Order' | r) | xlat}}
                         </button>
@@ -55,7 +55,7 @@
 
                 <div class="panel-footer" ng-if="order.FromUserID == user.ID && order.Status != 'Unsubmitted'">
                    <loadingindicator ng-show="displayLoadingIndicator" />
-                   <div class="form-group view-form-icon">
+                   <div class="form-group view-form-icon" ng-if="user.Type != 'TempCustomer'">
                         <div class="input-group">
                             <input type="text" ng-model="order.FavoriteName" placeholder="{{('Favorite' | r) + ' ' + ('Name' | r) | xlat}}" class="form-control" autocomplete="off" />
                             <i class="fa fa-star"></i>
