@@ -998,3 +998,6 @@ orderbilling .btn-group {
 .search .input-group {
     margin: 18px 0 0 !important;
 }
+.col-collapse.col-md-9.col-md-offset-1 {
+    margin-top: 16px;
+}
