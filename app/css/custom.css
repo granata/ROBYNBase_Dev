@@ -992,3 +992,9 @@ btn.continue {
 orderbilling .btn-group {
 	margin-top: 15px;
 }
+.continue {
+    margin-top:20px;
+}
+.search .input-group {
+    margin: 0 2px 0 0;
+}
