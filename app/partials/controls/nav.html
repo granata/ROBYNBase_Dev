@@ -12,6 +12,19 @@
                         </li>
                     </ul>
                 </div>
+                <div class="">
+                	<form role="search">
+                	    <div class="view-form-icon">
+                	        <div class="input-group">
+                	            <input type="text" ng-model="searchTerm"  class="form-control" placeholder="{{('Search' | r) + ' ' + ('Products' | r) | xlat}}" autocomplete="off" />
+                	            <i class="fa fa-search"></i>
+                	            <div class="input-group-btn">
+                	                <button type="submit" ng-click="search()" class="btn btn-default">{{'Search' | r | xlat}}</button>
+                	            </div>
+                	        </div>
+                	    </div>
+                	</form>
+                </div>
                 <div class="col-xs-7 pull-right">
                     <!--.row-->
                     <div class="row">

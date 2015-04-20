@@ -7,18 +7,7 @@
             <li>
                 <span id="451_lbl_curcat" class="text-primary" ng-bind-html="currentCategory.Name || '  {{'Categories' | r | xlat}}'"></span>
             </li>
-            <li class="pull-right">
-                <form role="search">
-                    <div class="view-form-icon">
-                        <div class="input-group">
-                            <input type="text" ng-model="searchTerm"  class="form-control" placeholder="{{('Search' | r) + ' ' + ('Products' | r) | xlat}}" autocomplete="off" />
-                            <i class="fa fa-search"></i>
-                            <div class="input-group-btn">
-                                <button type="submit" ng-click="search()" class="btn btn-default">{{'Search' | r | xlat}}</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
+            <li class="search pull-right col-md-4">
             </li>
         </ul>
     </nav>
