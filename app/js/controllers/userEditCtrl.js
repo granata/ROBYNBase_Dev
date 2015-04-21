@@ -34,7 +34,8 @@ function ($scope, $location, $sce, User) {
 	$scope.save = function() {
 		$scope.actionMessage = null;
 		$scope.securityWarning = false;
-		$scope.user.Username = $scope.user.TempUsername;
+		//$scope.user.Username = $scope.user.TempUsername;
+		$scope.user.Username = $scope.user.Email;
 		$scope.displayLoadingIndicator = true;
         if($scope.user.Type == 'TempCustomer')
 			$scope.user.ConvertFromTempUser = true;
