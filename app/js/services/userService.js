@@ -35,16 +35,19 @@ four51.app.factory('User', ['$q', '$rootScope', '$resource', '$451', 'Security',
     };
 
     var _save = function(user, success, error) {
+        var tempEmail = user.TempEmail ? user.TempEmail : null;
         $resource($451.api('user')).save(user).$promise.then(
-	        function(u) {
+            function(u) {
+                u.TempEmail = tempEmail;
+                u.GuestCheckout = tempEmail;
                 _extend(u);
                 _then(success,u);
                 store.set(_cacheName, u);
             },
-	        function(ex) {
-		        if (angular.isFunction(error))
-			        error(Error.format(ex));
-	        }
+            function(ex) {
+    	        if (angular.isFunction(error))
+    		        error(Error.format(ex));
+            }
         );
     };
 
