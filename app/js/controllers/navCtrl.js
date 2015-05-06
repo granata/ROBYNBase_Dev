@@ -47,12 +47,15 @@ function ($location, $route, $scope, $451, User) {
 		localStorage.clear();
 	}
 
-	$scope.$on('event:orderUpdate', function(event, order) {
+    $scope.$on('event:orderUpdate', function(event, order) {
         $scope.cartCount = order ? (order.Status == 'Unsubmitted' || order.Status == 'AwaitingApproval') ? order.LineItems.length : null : null;
 
         /* cartCount*/
         var newQty = 0;
         if (!order || (order.Status !== 'Unsubmitted' && order.Status == 'AwaitingApproval')) {
+            $scope.TotalQty = null;
+        }
+        else if(order.Status == 'Open'){
             $scope.TotalQty = null;
         }
         else {
@@ -63,5 +66,5 @@ function ($location, $route, $scope, $451, User) {
             });
             $scope.TotalQty = newQty;
         }
-	});
+    });
 }]);
