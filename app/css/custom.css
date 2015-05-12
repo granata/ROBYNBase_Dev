@@ -996,8 +996,19 @@ orderbilling .btn-group {
     margin-top:20px;
 }
 .search .input-group {
-    margin: 18px 0 0 !important;
+    margin: 0 2px 0 0 !important;
 }
 .col-collapse.col-md-9.col-md-offset-1 {
     margin-top: 16px;
+}
+.additional-buttons {
+    text-align: center;
+}
+.desc.panel-body ul {
+    margin-left: 2em;
+    list-style: disc;
+}
+.desc.panel-body ul li {
+    list-style: outside none disc;
+    margin-bottom: 0.4em;
 }

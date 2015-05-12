@@ -19,7 +19,7 @@
                 <span class="text-info">
                     {{'Quantity' | r | xlat}}
                 </span>
-                <span ng-show="p.QuantityMultiplier > 1 && !ps.RestrictedQuantity">
+                <span ng-show="p.QuantityMultiplier > 0 && !ps.RestrictedQuantity">
                     (x {{p.QuantityMultiplier}})
                 </span>
             </div>
@@ -27,7 +27,7 @@
                 <span class="text-info">
                     {{'Price' | r | xlat}}
                 </span>
-                <span ng-show="p.QuantityMultiplier > 1 && !ps.RestrictedQuantity" >
+                <span ng-show="p.QuantityMultiplier > 0 && !ps.RestrictedQuantity" >
                     (per {{p.QuantityMultiplier}})
                 </span>
             </div>

@@ -5,9 +5,9 @@
             <orderacknowledgemessage ng-show="order.recent" />
         </div>
         <nav class="nav">
-            <ul>
+            <ul class="pull-right">
                 <li><span class="text-primary">{{('Order' | r) | xlat}}<span ng-show="order.ExternalID"> {{'ID' | r}}: </span>{{order.ExternalID}}</span></li>
-                <li class="pull-right" ng-click="onPrint()"><span><i class="fa fa-print text-primary" rel="tooltip" title="{{'Print' | r | xlat}}"></i></span></li>
+                <li ng-click="onPrint()"><span><i class="fa fa-print text-primary" rel="tooltip" title="{{'Print' | r | xlat}}"></i></span></li>
             </ul>
         </nav>
         <div class="col-md-3 col-md-offset-1 col-md-push-8">
@@ -38,7 +38,7 @@
                         {{order.LineItems.length}} {{'Item' + (order.LineItems.length > 1 ? 's' : '') | rl | xlat}} {{'in this' | rl | xlat:(currentOrder.LineItems.length)}} {{'Order' | rl | xlat}}
                     </h3>-->
                     <h3 class="panel-title panel-primary">
-                        {{TotalQty}} {{'Item' + (TotalQty > 1 ? 's' : '') | rl | xlat}} {{'in this' | rl | xlat:(TotalQty)}} {{'Order' | rl | xlat}}
+                    	Thank you for your order.
                     </h3>
                 </div>
                 <lineitemhistorygrid />
