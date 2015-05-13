@@ -1,5 +1,5 @@
-four51.app.controller('Four51Ctrl', ['$scope', '$route', '$location', '$451', 'User', 'Order', 'Security', 'OrderConfig', 'Category', 'AppConst','XLATService',
-function ($scope, $route, $location, $451, User, Order, Security, OrderConfig, Category, AppConst, XLATService) {
+four51.app.controller('Four51Ctrl', ['$scope', '$route', '$location', '$451', 'User', 'Order', 'Security', 'OrderConfig', 'Category', 'AppConst','XLATService', 'GoogleAnalytics',
+function ($scope, $route, $location, $451, User, Order, Security, OrderConfig, Category, AppConst, XLATService, GoogleAnalytics) {
 	$scope.AppConst = AppConst;
 	$scope.scroll = 0;
 	$scope.isAnon = $451.isAnon; //need to know this before we have access to the user object
@@ -40,7 +40,9 @@ function ($scope, $route, $location, $451, User, Order, Security, OrderConfig, C
 				else
 					$scope.currentOrder = null;
 
-				analytics(user.Company.GoogleAnalyticsCode);
+                if (user.Company.GoogleAnalyticsCode) {
+                    GoogleAnalytics.analyticsLogin(user.Company.GoogleAnalyticsCode);
+                }
 			});
 			Category.tree(function (data) {
 				$scope.tree = data;

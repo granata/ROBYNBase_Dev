@@ -1,5 +1,5 @@
-four51.app.controller('CheckOutViewCtrl', ['$scope', '$routeParams', '$location', '$filter', '$rootScope', '$451', 'Analytics', 'User', 'Order', 'OrderConfig', 'FavoriteOrder', 'AddressList',
-function ($scope, $routeParams, $location, $filter, $rootScope, $451, Analytics, User, Order, OrderConfig, FavoriteOrder, AddressList) {
+four51.app.controller('CheckOutViewCtrl', ['$scope', '$routeParams', '$location', '$filter', '$rootScope', '$451', 'Analytics', 'User', 'Order', 'OrderConfig', 'FavoriteOrder', 'AddressList', 'GoogleAnalytics',
+function ($scope, $routeParams, $location, $filter, $rootScope, $451, Analytics, User, Order, OrderConfig, FavoriteOrder, AddressList, GoogleAnalytics) {
 	$scope.errorSection = 'open';
 
 	$scope.isEditforApproval = $routeParams.id != null && $scope.user.Permissions.contains('EditApprovalOrder');
@@ -52,6 +52,9 @@ function ($scope, $routeParams, $location, $filter, $rootScope, $451, Analytics,
                     User.save($scope.user, function(data) {
                         Order.submit($scope.currentOrder,
                             function(data) {
+                                if ($scope.user.Company.GoogleAnalyticsCode) {
+                                    GoogleAnalytics.ecommerce(data, $scope.user);
+                                }
                                 $scope.user.CurrentOrderID = null;
                                 User.save($scope.user, function(data) {
                                     $scope.user = data;
