@@ -1,27 +1,5 @@
 <section>
-    <nav id="451qa_nav_hdr" class="nav">
-        <ul>
-            <li>
-                <span ng-click="toggleNav()"><i class="fa fa-bars" ng-class="{ 'text-info': navStatus.visible }"></i></span>
-            </li>
-            <li>
-                <span id="451_lbl_curcat" class="text-primary" ng-bind-html="currentCategory.Name || '  {{'Categories' | r | xlat}}'"></span>
-            </li>
-            <li class="search col-xs-3 pull-right">
-            	<productsearchinput></productsearchinput>
-            </li>
-        </ul>
-    </nav>
-    <aside class="col-sm-2 col-collapse" ng-if="navStatus.visible">
-        <div class="panel-nav">
-            <nav class="nav 451qa_sidenav panel-body">
-                <ul>
-                    <categorytree tree='tree' current='currentCategory' />
-                </ul>
-            </nav>
-        </div>
-    </aside>
-    <div class="col-collapse" ng-class="{ 'col-md-9 col-md-offset-1': navStatus.visible }" >
+    <div class="col-collapse col-md-12">
 
         <categorylistview></categorylistview>
 

@@ -22,6 +22,7 @@
                                     <i class="fa fa-arrow-left"></i>
                                 </a>
                             </li>-->
+                            <li style="position: relative; top: 20px;"><productsearchinputnav></productsearchinputnav></li>
                             <li class="products" ng-class="{'active': isInPath('catalog') || isInPath('product') || isInPath('cart/default') || isInPath('search')}">
                                 <a id="451qa_home_link" ng-show="Four51User.isAuthenticated()" href="catalog">
                                     <i class="fa fa-home hidden-sm hidden-md hidden-lg"></i>
@@ -148,6 +149,7 @@
     </nav>
     <nav class="dropdown-mega">
         <a class="dropdown-toggle text-center" data-toggle="dropdown">
+        	<small>Product Categories</small><br/>
             <i class="fa fa-angle-down text-primary"></i>
         </a>
         <ul class="451qa_topnav dropdown-menu" >

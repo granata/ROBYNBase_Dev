@@ -346,6 +346,8 @@ fieldset[disabled] .btn-primary.active {
 
 .badge {
     background-color: #ffa400;
+    position: relative;
+    top: -4px;
 }
 
 .panel-category-list .well,
@@ -412,8 +414,6 @@ body {
 li.cart a i.fa-shopping-cart {
     border: 1px solid white;
     border-radius: 50%;
-    margin-top: -10px;
-    padding: 10px;
     text-align: center;
 }
 
@@ -517,6 +517,37 @@ li.cart a i.fa-shopping-cart {
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.176);
 }
 
+.dropdown-mega > a {
+    width: 100%;
+}
+
+.dropdown-mega {
+    border-bottom-color: #dddddd;
+    top: inherit;
+}
+
+.dropdown-mega .dropdown-menu {
+    border-top-color: #ffffff;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    top: 39px;
+}
+
+.dropdown-toggle.text-center > small {
+    color: #666666;
+    font-weight: normal;
+}
+
+.dropdown-mega > a i {
+    font-weight: bold;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    position: absolute;
+    top: 20px;
+}
+
 .navbar .container .navbar-nav li.active .fa-caret-down, .navbar .container-view .navbar-nav li.active .fa-caret-down {
     color:#6699CC;
     top: 61px;
@@ -583,10 +614,6 @@ ul.topNav {
     color:#696969;
 }
 
-.dropdown-mega {
-    display:none;
-}
-
 /*logo*/
 ul.logoNav {
     margin:0;
@@ -628,7 +655,7 @@ ul.logoNav li img {
 }
 
 .container-view {
-    margin-top: 40px;
+    margin-top: 60px;
     margin-bottom:130px;
 }
 
@@ -938,7 +965,7 @@ float:left;
 @media (max-width:1200px) {
     .container-view {
         margin-bottom: 20px;
-        margin-top: 20px;
+        margin-top: 60px;
     }
 }
 
